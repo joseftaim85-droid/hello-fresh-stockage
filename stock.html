@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Stock</h2>
+
+<form method="POST" action="/add_stock">
+
+<input name="palette_id" placeholder="Palette ID" required>
+<input name="quantity" placeholder="Quantity" required>
+<input name="day_code" placeholder="Day">
+<input name="location" placeholder="Location">
+
+<select name="type">
+<option>Classique</option>
+<option>Directionnelle</option>
+</select>
+
+<button>Add</button>
+
+</form>
+
+<table border="1">
+
+<tr>
+<th>ID</th>
+<th>Palette</th>
+<th>Type</th>
+<th>Qty</th>
+<th>Action</th>
+</tr>
+
+{% for p in palettes %}
+<tr>
+<td>{{p.id}}</td>
+<td>{{p.palette_id}}</td>
+<td>{{p.type}}</td>
+<td>{{p.quantity}}</td>
+<td><a href="/delete_stock/{{p.id}}">Delete</a></td>
+</tr>
+{% endfor %}
+
+</table>
+
+{% endblock %}

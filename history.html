@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>History</h2>
+
+<table border="1">
+<tr>
+<th>ID</th>
+<th>Camion</th>
+<th>Transporteur</th>
+<th>Date</th>
+</tr>
+
+{% for e in expeditions %}
+<tr>
+<td>{{e.id}}</td>
+<td>{{e.camion}}</td>
+<td>{{e.transporteur}}</td>
+<td>{{e.date_envoi}}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+{% endblock %}
